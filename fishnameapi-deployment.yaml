@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fishnamesapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fishnamesapi-deployment
+  template:
+    metadata:
+      labels:
+        app: fishnamesapi-deployment
+    spec:
+      containers:
+      - name: fishnamesapi-deployment
+        image: fishname_web
+        ports:
+        - containerPort: 80
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://postgres:postgres@db:5432/fishnames"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fishnames-service
+spec:
+  selector:
+    app: fishnamesapi-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
