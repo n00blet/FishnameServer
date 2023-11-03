@@ -33,7 +33,14 @@ After the above two steps are done, it will create a docker instance of the appl
 - To install python requirements: ```pip install -r requirements.txt```
 - To run the project from base dir: ```uvicorn "src.api.main:app" --host 0.0.0.0 --port 8000 --log-level "debug"```
 
+#### API 
 
+```
+RapidAPI: https://rapidapi.com/myapos--FqlEzvrlv/api/fish-species
+URL: API_URL="https://fish-species.p.rapidapi.com/fish_api/fishes"
+X-RapidAPI-Key=""
+X-RapidAPI-Host="fish-species.p.rapidapi.com"
+```
 
 ## Curl Requests example and sample output
 
